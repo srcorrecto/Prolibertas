@@ -16,8 +16,10 @@
        <strong class="person__list__text__left">Hora:</strong> <span id="horahistoria">{{ historyCtrl.history.time }}</span> 
     </li>
       <div class="col-md-12 btn_view_history">
-        <a id="remove-history-btn" type="button" class="btn btn-danger historia__btn__remove">Eliminar</a>
-        <button type="button" class="btn btn-primary historia__btn__edit" ui-sref="persona.historiaEditar({id:historiesCtrl.history.id})">Editar</button>
+        <a id="remove-history-btn" type="button" class="btn btn-danger historia__btn__remove"
+        ng-click="historyCtrl.destroyHistory(historyCtrl.history)">Eliminar</a>
+        
      </div>
   </ul>
+ 
 </div>

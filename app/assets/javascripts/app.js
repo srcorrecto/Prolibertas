@@ -153,6 +153,7 @@
             controllerAs: "historyFormCtrl"  
           }
         }
+
       });
 
   });

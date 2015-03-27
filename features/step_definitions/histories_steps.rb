@@ -73,5 +73,19 @@ Then(/^I should see the errors in the history form$/) do
   expect(page).to have_css "#InputDate ~ .tooltip", text: I18n.t('mongoid.errors.messages.blank')
   expect(page).to have_css ".has-error #InputTime"
   expect(page).to have_css "#InputTime ~ .tooltip", text: I18n.t('mongoid.errors.messages.blank')
+end
 
+When(/^I click the remove button in history view$/) do
+  @historia = History.first
+  page.find("#remove-history-btn").click
+  page.driver.browser.switch_to.alert.accept
+end
+
+Then(/^I should see history list$/) do
+  expect(page).to have_css "#list_histories" 
+end
+
+
+Then(/^I should see a success message$/) do
+   expect(page).to have_css ".leo-message", text:"¡Borrado satisfactoriamente!"
 end

@@ -129,6 +129,20 @@
       $rootScope.prolibertas = "Historia nueva"
     }
 
+  $http.get('/histories/' + $state.params.historia_id + '.json')
+    .success(function(data){
+      scope.history = data.history;
+    })
+
+    scope.destroyHistory = function(history) {
+      var confirmed = confirm('¿Desea borrar la historia?');
+      if (confirmed) {
+        $http.delete('/histories/' + history.id + '.json').success(function(data) {
+          $state.go("persona.historias", { alertaBorrado: 'true' })
+        });
+      }
+    };
+
   }]);
 
 })();
